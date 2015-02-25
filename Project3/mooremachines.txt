@@ -1,0 +1,58 @@
+Walk to a position, face target (Moore machine)
+
+-facing target 1
+	-walk forward
+-not facing target 1
+	-turn until facing target 1
+	-facing target 1
+-at target 1 facing target 2
+	-stop
+-at target 1 not facing target 2
+	-turn until facing target 2
+
+Walk towards a ball (Moore machine)
+
+	-facing ball
+		-walk forward
+		-at ball	
+			-stop
+	
+	-not facing ball
+		-turn until facing ball
+		-facing ball
+
+Approach ball and kick
+
+	-Walk towards ball  (Moore machine above)
+	-kick ball
+
+Walk to a ball, approach and kick to target
+
+	-Walk towards a ball (Moore machine above)
+	-if facing target
+		-kick ball
+			-if at target
+				-stop
+			-if not at target
+				-approach ball and kick
+				
+		
+	-if not facing target 
+		-walk around ball
+		
+
+Walk to a position, wait until ball is close, then approach and kick toward goal
+	-walk to a position (Moore machine above)
+		-face goal
+	-can see ball (ball is close)
+		-kick ball toward goal
+		
+	-cannot see ball	
+		-wait
+	
+	-ball is in goal
+		-stop
+	
+	-ball not in goal
+		-kick ball toward goal
+		
